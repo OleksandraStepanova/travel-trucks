@@ -12,7 +12,7 @@ export default function Appbar() {
                 <Toolbar sx={{
                     justifyContent: 'start',
                  }}>
-                    <img src="../../../public/logo.svg" alt="logo" />
+                    <img src="../../img/logo.svg" alt="logo" />
                     <Navigation />             
                 </Toolbar>
             </AppBar>
