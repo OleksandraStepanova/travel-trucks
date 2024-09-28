@@ -2,6 +2,16 @@ import { Card, CardContent, IconButton, List, ListItem } from "@mui/material";
 import css from './CampersItem.module.css'
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import heart from "../../img/heart.svg";
+import redHeart from "../../img/red-heart.svg";
+import star from "../../img/star.svg";
+import map from "../../img/map.svg";
+import diagram from "../../img/diagram.svg";
+import fuel from "../../img/fuel-pump.svg";
+import kitchen from "../../img/cup-hot.svg";
+import wind from "../../img/wind.svg";
+import droplet from "../../img/bi_droplet.svg";
+import radio from "../../img/ui-radios.svg";
 
 export default function CampersItem({ camper }) {
     const navigate = useNavigate();
@@ -32,19 +42,19 @@ export default function CampersItem({ camper }) {
                                 onClick={handleClicked}
                                 color={clicked ? 'error' : 'default'}>
                                 {clicked ?
-                                    <img src="../../../public/red-heart.svg" alt="like" /> :
-                                    <img src="../../../public/heart.svg" alt="like" />}
+                                    <img src={redHeart} alt="like" /> :
+                                    <img src={heart} alt="like" />}
                             </IconButton>                            
                         </div>
                     </div>
                     <div className={css.wrapper}>
                         <div className={css.reviews}>
-                            <img src="../../../public/star.svg" alt="star" />
+                            <img src={star} alt="star" />
                             <p>{camper.rating}</p>
                             <p>({camper.reviews.length} Reviews)</p>
                         </div>
                         <div className={css.reviews}>
-                            <img src="../../../public/map.svg" alt="map" />
+                            <img src={map} alt="map" />
                             <p>{camper.location}</p>
                         </div>
                     </div>                    
@@ -63,7 +73,7 @@ export default function CampersItem({ camper }) {
                             height: '48px',
                             backgroundColor:'#F2F4F7',
                         }}>
-                            <img src="../../../public/diagram.svg" alt="diagram" />
+                            <img src={diagram} alt="diagram" />
                             <p className={css.characteristics}>{camper.transmission}</p>
                         </ListItem>
                         <ListItem sx={{
@@ -74,7 +84,7 @@ export default function CampersItem({ camper }) {
                             height: '48px',
                             backgroundColor:'#F2F4F7',
                         }}>
-                            <img src="../../../public/fuel-pump.svg" alt="fuel" />
+                            <img src={fuel} alt="fuel" />
                             <p className={css.characteristics}>{camper.engine}</p>
                         </ListItem>
                         {camper.kitchen&&<ListItem sx={{
@@ -85,7 +95,7 @@ export default function CampersItem({ camper }) {
                             height: '48px',
                             backgroundColor:'#F2F4F7',
                         }}>
-                            <img src="../../../public/cup-hot.svg" alt="kitchen" />
+                            <img src={kitchen} alt="kitchen" />
                             <p className={css.characteristics}>Kitchen</p>
                         </ListItem>}
                         {camper.AC&&<ListItem sx={{
@@ -96,9 +106,31 @@ export default function CampersItem({ camper }) {
                             height: '48px',
                             backgroundColor:'#F2F4F7',
                         }}>
-                            <img src="../../../public/wind.svg" alt="AC" />
+                            <img src={wind} alt="AC" />
                             <p className={css.characteristics}>AC</p>
                         </ListItem>}
+                        {camper.bathroom&&<ListItem sx={{
+                            gap: "8px",
+                            padding: '12px 18px',
+                            borderRadius: '100px',
+                            width: '143px',
+                            height: '48px',
+                            backgroundColor:'#F2F4F7',
+                        }}>
+                            <img src={droplet} alt="droplet" />
+                            <p className={css.characteristics}>Bathroom</p>
+                        </ListItem>}
+                        {camper.radio&&<ListItem sx={{
+                            gap: "8px",
+                            padding: '12px 18px',
+                            borderRadius: '100px',
+                            width: '143px',
+                            height: '48px',
+                            backgroundColor:'#F2F4F7',
+                        }}>
+                            <img src={radio} alt="radio" />
+                            <p className={css.characteristics}>Radio</p>
+                        </ListItem>}                   
                      </List>
                     <a className={css.a} onClick={()=>{handleClicke(camper.id)}}>Show more</a>
                 </div>

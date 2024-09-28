@@ -5,6 +5,8 @@ import { selectCamperById } from "../../redux/campers/selector";
 import { fetchCamperById } from "../../redux/campers/operations";
 import { useEffect } from "react";
 import css from './CampPage.module.css';
+import iconStar from "../../img/star.svg";
+import iconMap from "../../img/map.svg";
 
 
 export default function CapmPage() {
@@ -26,12 +28,12 @@ export default function CapmPage() {
             <h2 className={css.title}>{camper.name}</h2>
             <div className={css.wrapper}>
                 <div className={css.reviews}>
-                    <img src="../../../public/star.svg" alt="star" />
+                    <img src={iconStar} alt="star" />
                     <p>{camper.rating}</p>
                     {camper.reviews&&<p>({camper.reviews.length} Reviews)</p>}
                 </div>
                 <div className={css.location}>
-                    <img src="../../../public/map.svg" alt="map" />
+                    <img src={iconMap} alt="map" />
                     <p>{camper.location}</p>
                 </div>
             </div>
