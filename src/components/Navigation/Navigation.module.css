@@ -1,0 +1,15 @@
+.a{
+    font-family: 'Inter Medium';
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    text-align: center;
+    color: #101828;
+}
+.nav{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    padding-right: 136px;
+}
