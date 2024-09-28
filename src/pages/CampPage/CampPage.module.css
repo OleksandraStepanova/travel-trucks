@@ -40,5 +40,43 @@
     object-fit:cover;
     background-color: #F7F7F7;
     width: 292px;
-        height: 312px;
+    height: 312px;       
+}
+.a{
+    color: #101828;
+    font-family: 'Inter Medium';
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+}
+.description{
+    margin-bottom: 24px;
+}
+.navList {
+    display: flex;
+    align-items: center;
+    height: 24px;
+    margin-bottom: 24px;
+    gap: 40px;
+    padding: 24px 0;
+    border-bottom: 1px solid #DADDE1;
+}
+.active {
+    color: #101828;
+    font-family: 'Inter Medium';
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    position: relative;
+}
+
+.active::after{
+    content: "";
+    position: absolute;
+    left: -1px;
+    bottom: -16px;
+    width: 102%;
+    height: 3px;
+    background-color: #E44848;
+
 }

@@ -1,6 +1,6 @@
 import {List, ListItem } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { NavLink, Outlet, useParams } from "react-router-dom";
 import { selectCamperById } from "../../redux/campers/selector";
 import { fetchCamperById } from "../../redux/campers/operations";
 import { useEffect } from "react";
@@ -36,21 +36,31 @@ export default function CapmPage() {
                 </div>
             </div>
             <p className={css.price}>&euro;{camper.price},00</p>
-            <List sx={{display:'flex', justifyContent:'space-between'}}>
-                {camper.gallery[0]&&<ListItem>
+            <List sx={{display:'flex', justifyContent:'flex-start',padding:'0', marginBottom:"28px"}}>
+                {camper.gallery[0]&&<ListItem sx={{padding:'0'}}>
                     <img className={css.image} src={camper.gallery[0].original} alt="firs image" />
                 </ListItem>}
-                {camper.gallery[1]&&<ListItem>
+                {camper.gallery[1]&&<ListItem sx={{padding:'0'}}>
                     <img className={css.image} src={camper.gallery[1].original} alt="second image" />
                 </ListItem>}
-                {camper.gallery[2]&&<ListItem>
+                {camper.gallery[2]&&<ListItem sx={{padding:'0'}}>
                     <img className={css.image} src={camper.gallery[2].original} alt="third image" />
                 </ListItem>}
-                {camper.gallery[3]&&<ListItem>
+                {camper.gallery[3]&&<ListItem sx={{padding:'0'}}>
                     <img className={css.image} src={camper.gallery[3].original} alt="forth image" />
                 </ListItem>}
             </List>
-        </section>    }
+            <p className={css.description}>{camper.description}</p>
+            <ul className={css.navList}>
+                <li className={css.nav}>
+                    <NavLink to="features" className={({isActive})=>isActive?css.active:css.a}>Features</NavLink>
+                </li>
+                <li className={css.nav} >
+                    <NavLink to="reviews" className={({isActive})=>isActive?css.active:css.a}>Reviews</NavLink>
+                </li>
+            </ul>
+            <Outlet />
+        </section>}
     </>
     )
 
