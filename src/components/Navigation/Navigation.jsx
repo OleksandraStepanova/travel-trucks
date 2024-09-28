@@ -4,8 +4,8 @@ import css from './Navigation.module.css'
 export default function Navigation() {
     return (
         <nav className={css.nav}>
-            <NavLink className={css.a} to='/'>Home</NavLink>
-            <NavLink className={css.a} to='/catalog'>Catalog</NavLink>
+            <NavLink to="/" className={({isActive})=>isActive?css.active:css.a}>Home</NavLink>
+            <NavLink to="/catalog" className={({isActive})=>isActive?css.active:css.a} >Catalog</NavLink>
         </nav>
     )
 }
