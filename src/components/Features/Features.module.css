@@ -4,7 +4,7 @@
 }
 .info{
     border-radius: 10px;    
-    width: 631px;
+    max-width: 631px;
     height: 588px;
     padding: 44px 52px;
     background-color: #F7F7F7;
