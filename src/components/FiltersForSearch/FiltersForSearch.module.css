@@ -73,3 +73,7 @@
         border: none;
         margin: 8px 0 24px;
 }
+.form{
+    display: flex;
+    flex-direction: column;
+}

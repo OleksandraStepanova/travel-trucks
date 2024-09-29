@@ -26,7 +26,7 @@ export default function FiltersForSearch() {
                 dispatch(changeFilter(values))
             }}
         >
-            <Form>
+            <Form className={css.form}>
                 <label className={css.text} htmlFor='location'>Location</label>
                 <Field id='location' name='location' className={css.location} type="text" placeholder='Kyiv' />
                 <button type='submit' className={css.button}>Searsh</button>
