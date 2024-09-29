@@ -21,16 +21,36 @@ export default function FiltersForSearch() {
         <Formik
             initialValues={{
                 location: '',
+                form: '',
             }}
             onSubmit={(values) => {
                 dispatch(changeFilter(values))
             }}
         >
-            <Form className={css.form}>
+            {({ values, setFieldValue}) => (
+
+                <Form className={css.form}>
                 <label className={css.text} htmlFor='location'>Location</label>
                 <Field id='location' name='location' className={css.location} type="text" placeholder='Kyiv' />
+                <label className={css.title}>Vehicle type</label>    
+                <div className={css.list}>
+                    <div onClick={()=>{setFieldValue('form','panelTruck')}} className={css.container} style={{border:values.form==='panelTruck'?'1px solid #E44848':'1px solid #DADDE1'}}>
+                        <img src={van} alt="van" />
+                        <p>Van</p>
+                    </div>           
+                    <div onClick={()=>{setFieldValue('form','fullyIntegrated')}} className={css.container} style={{border:values.form==='fullyIntegrated'?'1px solid #E44848':'1px solid #DADDE1'}}>
+                        <img src={fully} alt="fullyIntegrated" />
+                        <p className={css.p}>Fully Integrated</p>
+                    </div>                
+                    <div onClick={()=>{setFieldValue('form','alcove')}} className={css.container} style={{border:values.form==='alcove'?'1px solid #E44848':'1px solid #DADDE1'}}>
+                        <img src={alcove} alt="alcove" />
+                        <p>Alcove</p>
+                    </div>
+                </div>
                 <button type='submit' className={css.button}>Searsh</button>
             </Form>
+            )}
+            
             
         </Formik>
 
@@ -70,27 +90,8 @@ export default function FiltersForSearch() {
                     </div>
                 </li>
             </ul>
-            <h3 className={css.title}>Vehicle type</h3>
-            <ul className={css.list}>
-                <li>
-                    <div className={css.container}>
-                        <img src={van} alt="van" />
-                        <p>Van</p>
-                    </div>
-                </li>
-                <li>
-                    <div className={css.container}>
-                        <img src={fully} alt="fully" />
-                        <p className={css.p}>Fully Integrated</p>
-                    </div>
-                </li>
-                <li>
-                    <div className={css.container}>
-                        <img src={alcove} alt="alcove" />
-                        <p>Alcove</p>
-                    </div>
-                </li>               
-            </ul>
+            
+            
         </div>
     </div>)
 }

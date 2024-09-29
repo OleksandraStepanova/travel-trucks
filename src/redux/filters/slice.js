@@ -2,10 +2,14 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const slice = createSlice({
     name: 'filters',
-    initialState: {location: 'Kyiv'},
+    initialState: {
+        location: '',
+        form: '',
+    },
     reducers: {
         changeFilter(state, action) {
-            state.location = action.payload;
+            state.form = action.payload.form;
+            state.location = action.payload.location;
         }
     }
 });
