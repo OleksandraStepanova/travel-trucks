@@ -74,7 +74,7 @@
         height: 56px;
         background-color: #F7F7F7;
         border: none;
-        margin: 8px 0 24px;
+        margin: 8px 0 0;
 }
 .form{
     display: flex;

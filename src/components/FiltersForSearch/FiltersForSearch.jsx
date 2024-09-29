@@ -31,7 +31,8 @@ export default function FiltersForSearch() {
 
                 <Form className={css.form}>
                 <label className={css.text} htmlFor='location'>Location</label>
-                <Field id='location' name='location' className={css.location} type="text" placeholder='Kyiv' />
+                    <Field id='location' name='location' className={css.location} type="text" placeholder='Kyiv' />
+                    <p className={css.text}>Filters</p>
                 <label className={css.title}>Vehicle type</label>    
                 <div className={css.list}>
                     <div onClick={()=>{setFieldValue('form','panelTruck')}} className={css.container} style={{border:values.form==='panelTruck'?'1px solid #E44848':'1px solid #DADDE1'}}>
@@ -56,7 +57,7 @@ export default function FiltersForSearch() {
 
 
          <div>
-            <p className={css.text}>Filters</p>
+            
             <h3 className={css.title}>Vehicle equipment</h3>
             <ul className={css.list}>
                 <li>
