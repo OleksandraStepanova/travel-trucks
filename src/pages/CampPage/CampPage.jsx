@@ -38,7 +38,7 @@ export default function CapmPage() {
                 </div>
             </div>
             <p className={css.price}>&euro;{camper.price},00</p>
-            <List sx={{display:'flex', justifyContent:'flex-start',padding:'0', marginBottom:"28px"}}>
+            <List sx={{display:'flex', justifyContent:'flex-start',padding:'0', marginBottom:"28px", gap:'16px'}}>
                 {camper.gallery[0]&&<ListItem sx={{padding:'0'}}>
                     <img className={css.image} src={camper.gallery[0].original} alt="firs image" />
                 </ListItem>}

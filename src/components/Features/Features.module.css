@@ -1,0 +1,26 @@
+.info{
+    border-radius: 10px;    
+    width: 631px;
+    height: 588px;
+    padding: 44px 52px;
+    background-color: #F7F7F7;
+}
+
+.ditails{
+    font-family: 'Inter SemiBold';
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1.2;
+    color: #101828;
+    margin-top: 76px;
+}
+
+.item{
+    font-family: 'Inter Medium';
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    text-align: center;
+    color: #101828;
+    text-transform: capitalize;
+}

@@ -1,0 +1,44 @@
+.ava{
+    font-family: 'Inter SemiBold';        
+    color: transparent;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 1.33;
+    border-radius: 60px;
+    width: 60px;
+    height: 60px;
+    background-color: #F2F4F7;
+    overflow: hidden;
+    padding: 14px 21px;
+}
+
+.ava::first-letter{
+    display: inline;
+    color: #E44848;    
+}
+.info{
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+.comment{
+    font-family:'inter Regular';
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #475467;
+}
+.rating{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+.name{
+    font-family: 'Inter Medium';
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #101828;
+    padding: 0;
+    margin: 0;
+}
