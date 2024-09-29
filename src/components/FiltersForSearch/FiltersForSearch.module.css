@@ -67,6 +67,9 @@
 .button:hover {
     background-color: #D84343;
 }
+.button:focus {
+    outline: none;
+}
 .location{
     border-radius: 12px;
         padding: 18px 218px 18px 20px;
