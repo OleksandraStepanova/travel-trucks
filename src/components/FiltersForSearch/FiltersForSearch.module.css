@@ -68,7 +68,7 @@
     background-color: #D84343;
 }
 .button:focus {
-    outline: none;
+    outline-color: transparent;
 }
 .location{
     border-radius: 12px;

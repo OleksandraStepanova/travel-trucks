@@ -29,6 +29,9 @@
 .button:hover {
     background-color: #D84343;
 }
+.button:focus {
+    outline-color: transparent;
+}
 
 .comment{
     background-color: #F7F7F7;
