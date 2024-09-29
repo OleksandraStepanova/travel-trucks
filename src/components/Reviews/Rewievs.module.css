@@ -1,3 +1,7 @@
+.section{
+    display: flex;
+    gap: 40px;
+}
 .ava{
     font-family: 'Inter SemiBold';        
     color: transparent;

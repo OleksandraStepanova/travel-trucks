@@ -1,0 +1,61 @@
+.input{
+    background-color: #F7F7F7;
+    border-radius: 12px;
+    padding: 18px 18px 18px 18px;
+    width: 527px;
+    height: 60px;
+    border-bottom: none;
+    border: none;
+    overflow: visible;
+    box-sizing: border-box;
+    display: flex;
+    white-space: nowrap;
+}
+.input:focus{
+    outline-color: transparent;
+
+}
+.button {
+    border-radius: 200px;
+    padding: 16px 60px;
+    width: 173px;
+    height: 56px;
+    background-color: #E44848;
+    color: white;
+    margin-top: 10px;
+    
+}
+
+.button:hover {
+    background-color: #D84343;
+}
+
+.comment{
+    background-color: #F7F7F7;
+    border-radius: 12px;
+    padding: 18px 18px 18px 18px;
+    width: 527px;
+    height: 118px;
+    border-bottom: none;
+    border: none;
+    word-break: break-all;
+
+}
+.message{
+    height: 9px;
+    padding: 0;
+    margin: 0;
+    font-family: 'Inter Regular';
+    font-size: 16px;
+    color: #D84343;
+}
+input{
+    width: 527px;
+}
+.input[type='date']{
+    color: #2b2c2c;
+}
+.input[type='date']::-webkit-calendar-picker-indicator{
+    cursor: pointer;
+    filter:invert(0.5);
+}

@@ -3,6 +3,7 @@ import { selectCamperById } from "../../redux/campers/selector";
 import { List, ListItem } from "@mui/material";
 import css from './Rewievs.module.css';
 import star from '../../img/star.svg'
+import BookingForm from "../BookingForm/BookingForm";
 
 function StarsRaiting({rating}){
     const stars = Array.from({ length: rating }, (_, index) => (
@@ -18,7 +19,7 @@ export default function Reviews() {
     
     
     return (
-        <>
+        <section className={css.section}>
             {camper && <List sx={{width:'631px'}}>
                 {camper.reviews.map((review) => 
                 (<ListItem key={review.reviewer_name} sx={{display:'flex',flexDirection:'column', alignItems:'start'}}>
@@ -33,6 +34,7 @@ export default function Reviews() {
                     </ListItem>)
                 )}
             </List>}
-        </>
+            <BookingForm/>
+        </section>
     )
 }

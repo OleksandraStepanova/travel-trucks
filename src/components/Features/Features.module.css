@@ -1,3 +1,7 @@
+.features{
+    display: flex;
+    gap: 40px;
+}
 .info{
     border-radius: 10px;    
     width: 631px;

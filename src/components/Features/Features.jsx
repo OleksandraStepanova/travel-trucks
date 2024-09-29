@@ -3,11 +3,12 @@ import { selectCamperById } from "../../redux/campers/selector";
 import FeaturesList from "../FeaturesList/FeaturesList";
 import css from './Features.module.css';
 import { List, ListItem } from "@mui/material";
+import BookingForm from "../BookingForm/BookingForm";
 
 export default function Features() {
     const camper = useSelector(selectCamperById);
     return (
-        <>
+        <section className={css.features}>
             {camper && <div>
                 <div className={css.info}>
                     <FeaturesList camper={camper} />
@@ -41,6 +42,7 @@ export default function Features() {
                     </List>
                 </div>
             </div>}
-        </>
+            <BookingForm/>
+        </section>
     )
 }
