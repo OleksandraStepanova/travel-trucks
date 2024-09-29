@@ -22,9 +22,14 @@ export default function FiltersForSearch() {
             initialValues={{
                 location: '',
                 form: '',
+                AC: false,
+                bathroom: false,
+                kitchen: false,
+                radio: false,
+                transmission: false,
             }}
             onSubmit={(values) => {
-                dispatch(changeFilter(values))
+                dispatch(changeFilter(values))                
             }}
         >
             {({ values, setFieldValue}) => (
@@ -48,51 +53,33 @@ export default function FiltersForSearch() {
                         <p>Alcove</p>
                     </div>
                 </div>
+                    <h3 className={css.title}>Vehicle equipment</h3>
+                    <div  className={css.list}>
+                        <div onClick={() => { setFieldValue('AC', !values.AC) }} className={css.container} style={{border:values.AC===true?'1px solid #E44848':'1px solid #DADDE1'}}>
+                            <img src={wind} alt="wind" />
+                            <p>AC</p>
+                        </div>
+                        <div  onClick={() => { setFieldValue('transmission', !values.transmission) }} className={css.container} style={{border:values.transmission===true?'1px solid #E44848':'1px solid #DADDE1'}}>
+                            <img src={diagram} alt="diagram" />
+                            <p>Automatic</p>
+                        </div>
+                        <div onClick={() => { setFieldValue('kitchen', !values.kitchen) }} className={css.container} style={{border:values.kitchen===true?'1px solid #E44848':'1px solid #DADDE1'}}>
+                            <img src={cup} alt="cup" />
+                            <p>Kitchen</p>
+                        </div>
+                        <div onClick={() => { setFieldValue('radio', !values.radio) }} className={css.container} style={{border:values.radio===true?'1px solid #E44848':'1px solid #DADDE1'}}>
+                            <img src={radio} alt="radio" />
+                            <p>Radio</p>
+                        </div>
+                        <div onClick={() => { setFieldValue('bathroom', !values.bathroom) }} className={css.container} style={{border:values.bathroom===true?'1px solid #E44848':'1px solid #DADDE1'}}>
+                            <img src={droplet} alt="droplet" />
+                            <p>Bathroom</p>
+                        </div>
+                    </div>
                 <button type='submit' className={css.button}>Searsh</button>
             </Form>
-            )}
+            )}        
             
-            
-        </Formik>
-
-
-         <div>
-            
-            <h3 className={css.title}>Vehicle equipment</h3>
-            <ul className={css.list}>
-                <li>
-                    <div className={css.container}>
-                        <img src={wind} alt="wind" />
-                        <p>AC</p>
-                    </div>
-                </li>
-                <li>
-                    <div className={css.container}>
-                        <img src={diagram} alt="diagram" />
-                        <p>Automatic</p>
-                    </div>
-                </li>
-                <li>
-                    <div className={css.container}>
-                        <img src={cup} alt="cup" />
-                        <p>Kitchen</p>
-                    </div>
-                </li>
-                <li>
-                    <div className={css.container}>
-                        <img src={radio} alt="radio" />
-                        <p>Radio</p>
-                    </div>
-                </li>
-                <li>
-                    <div className={css.container}>
-                        <img src={droplet} alt="droplet" />
-                        <p>Bathroom</p>
-                    </div>
-                </li>
-            </ul>
-            
-            
-        </div>
+        </Formik>         
     </div>)
 }
