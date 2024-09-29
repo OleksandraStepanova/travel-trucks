@@ -11,10 +11,17 @@ export const fetchCampers = createAsyncThunk(
             if(location&&form){
                 const respons = await axios.get(`/campers?location=${location}&form=${form}`);
                 return respons.data;
-            } else {
-                const respons = await axios.get(`/campers`);
+            }
+            if (location && !form) {
+                const respons = await axios.get(`/campers?location=${location}`);
                 return respons.data;
             }
+            if (!location && form) {
+                const respons = await axios.get(`/campers?form=${form}`);
+                return respons.data;
+            }
+            const respons = await axios.get(`/campers`);
+            return respons.data;
         }
         catch (error) {
             return thunkAPI.rejectWithValue(error.message)
