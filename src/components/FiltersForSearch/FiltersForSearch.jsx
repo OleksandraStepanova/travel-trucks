@@ -9,7 +9,11 @@ import fully from '../../img/fully.svg';
 import van from '../../img/van.svg';
 import { Field, Formik, Form} from 'formik';
 import { useDispatch } from 'react-redux';
-import { changeFilter } from '../../redux/filters/slice';
+import { changeFilter, clearFilter } from '../../redux/filters/slice';
+import { fetchCampers } from '../../redux/campers/operations';
+import toast from 'react-hot-toast';
+
+const notifyError = () => toast.error("Nothing was found for this query");
 
 
 export default function FiltersForSearch() {    
@@ -29,7 +33,11 @@ export default function FiltersForSearch() {
                 transmission: false,
             }}
             onSubmit={(values) => {
-                dispatch(changeFilter(values))                
+                dispatch(clearFilter())
+                dispatch(changeFilter(values))   
+                 dispatch(fetchCampers()).unwrap().then().catch((error) => {
+            if (error) notifyError();
+        })
             }}
         >
             {({ values, setFieldValue}) => (

@@ -5,39 +5,23 @@ axios.defaults.baseURL = 'https://66b1f8e71ca8ad33d4f5f63e.mockapi.io';
 
 export const fetchCampers = createAsyncThunk(
     'campers/fetchAll',
-    async ({location, form, AC}, thunkAPI) => {
+    async (_,{ getState }) => {
+        const state = getState();
         
-        try {
-            if(location&&form&&AC){
-                const respons = await axios.get(`/campers?location=${location}&form=${form}&AC=${AC}`);
-                return respons.data;
+        const { filters } = state.filters;
+        
+
+        const params = new URLSearchParams();
+        for (const [key, value] of Object.entries(filters)) {
+            if (value) {
+                params.append(key,value)
             }
-            if (location && !form &&!AC) {
-                const respons = await axios.get(`/campers?location=${location}`);
-                return respons.data;
-            }
-              if (location && !form &&AC) {
-                const respons = await axios.get(`/campers?location=${location}&AC=${AC}`);
-                return respons.data;
-            }
-            if (location && form &&!AC) {
-                const respons = await axios.get(`/campers?location=${location}&form=${form}`);
-                return respons.data;
-            }
-            if (!location && form && AC) {
-                const respons = await axios.get(`/campers?form=${form}&AC=${AC}`);
-                return respons.data;
-            }
-            if (!location && !form && AC) {
-                const respons = await axios.get(`/campers?AC=${AC}`);
-                return respons.data;
-            }
-            const respons = await axios.get(`/campers`);
-            return respons.data;
         }
-        catch (error) {  
-            return thunkAPI.rejectWithValue(error.message)
-        }
+      
+        
+        const respons = await axios.get(`/campers?${params.toString()}`)
+        return respons.data;
+       
     }
 );
 
