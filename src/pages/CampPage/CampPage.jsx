@@ -1,12 +1,13 @@
 import {List, ListItem } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink, Outlet, useParams } from "react-router-dom";
-import { selectCamperById } from "../../redux/campers/selector";
+import { selectCamperById, selectIsLoading } from "../../redux/campers/selector";
 import { fetchCamperById } from "../../redux/campers/operations";
 import { useEffect } from "react";
 import css from './CampPage.module.css';
 import iconStar from "../../img/star.svg";
 import iconMap from "../../img/map.svg";
+import Loader from '../../components/Loader/Loader'
 
 
 export default function CapmPage() {
@@ -15,6 +16,7 @@ export default function CapmPage() {
     const {
         id,
     } = useParams();
+    const isLoading = useSelector(selectIsLoading);
 
 
     useEffect(() => {
@@ -24,6 +26,7 @@ export default function CapmPage() {
     const camper = useSelector(selectCamperById);    
 
     return (<>
+        {isLoading&&<Loader/>}
         {camper&&<section className={css.camp}>
             <h2 className={css.title}>{camper.name}</h2>
             <div className={css.wrapper}>
