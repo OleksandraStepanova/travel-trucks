@@ -5,19 +5,31 @@ axios.defaults.baseURL = 'https://66b1f8e71ca8ad33d4f5f63e.mockapi.io';
 
 export const fetchCampers = createAsyncThunk(
     'campers/fetchAll',
-    async ({location, form}, thunkAPI) => {
+    async ({location, form, AC}, thunkAPI) => {
         
         try {
-            if(location&&form){
-                const respons = await axios.get(`/campers?location=${location}&form=${form}`);
+            if(location&&form&&AC){
+                const respons = await axios.get(`/campers?location=${location}&form=${form}&AC=${AC}`);
                 return respons.data;
             }
-            if (location && !form) {
+            if (location && !form &&!AC) {
                 const respons = await axios.get(`/campers?location=${location}`);
                 return respons.data;
             }
-            if (!location && form) {
-                const respons = await axios.get(`/campers?form=${form}`);
+              if (location && !form &&AC) {
+                const respons = await axios.get(`/campers?location=${location}&AC=${AC}`);
+                return respons.data;
+            }
+            if (location && form &&!AC) {
+                const respons = await axios.get(`/campers?location=${location}&form=${form}`);
+                return respons.data;
+            }
+            if (!location && form && AC) {
+                const respons = await axios.get(`/campers?form=${form}&AC=${AC}`);
+                return respons.data;
+            }
+            if (!location && !form && AC) {
+                const respons = await axios.get(`/campers?AC=${AC}`);
                 return respons.data;
             }
             const respons = await axios.get(`/campers`);

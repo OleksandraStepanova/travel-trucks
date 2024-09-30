@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchCampers } from "../../redux/campers/operations";
 import CampersList from "../../components/CampersList/CampersList";
 import FiltersForSearch from "../../components/FiltersForSearch/FiltersForSearch";
-import { selectFormFilter, selectLocationFilter } from "../../redux/filters/selector";
+import { selectACFilter, selectFormFilter, selectLocationFilter } from "../../redux/filters/selector";
 import toast,{ Toaster } from "react-hot-toast";
 import { selectError, selectIsLoading } from "../../redux/campers/selector";
 import Loader from "../../components/Loader/Loader";
@@ -16,14 +16,15 @@ export default function CatalogPage() {
     const dispatch = useDispatch();
     const location = useSelector(selectLocationFilter).trim();    
     const form = useSelector(selectFormFilter);
+    const AC = useSelector(selectACFilter);
    
 
     useEffect(() => {      
         
-        dispatch(fetchCampers({ location, form })).unwrap().then().catch((error) => {
+        dispatch(fetchCampers({ location, form, AC })).unwrap().then().catch((error) => {
             if (error) notifyError();
         })
-    }, [dispatch, location, form])
+    }, [dispatch, location, form, AC])
     
     const isLoading = useSelector(selectIsLoading);
     const isError = useSelector(selectError);
