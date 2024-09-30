@@ -4,13 +4,13 @@ import toast from "react-hot-toast";
 
 
 const notifyError = () => toast.error("Nothing was found for this query");
-const notifyErrorAll = () => toast.error("Something went wrong");
+// const notifyErrorAll = () => toast.error("Something went wrong");
 
 axios.defaults.baseURL = 'https://66b1f8e71ca8ad33d4f5f63e.mockapi.io';
 
 export const fetchCampers = createAsyncThunk(
     'campers/fetchAll',
-    async ({location, form}, thunkAPI) => {
+    async ({location, form}, rejectWithValue) => {
         
         try {
             if(location&&form){
@@ -30,7 +30,8 @@ export const fetchCampers = createAsyncThunk(
         }
         catch (error) {
             notifyError();
-            return thunkAPI.rejectWithValue(error.message)
+            rejectWithValue(error.message)
+            // return thunkAPI.rejectWithValue(error.message)
         }
     }
 );

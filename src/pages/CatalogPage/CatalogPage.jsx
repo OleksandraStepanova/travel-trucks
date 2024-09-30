@@ -7,6 +7,7 @@ import { selectFormFilter, selectLocationFilter } from "../../redux/filters/sele
 import { Toaster } from "react-hot-toast";
 
 
+
 export default function CatalogPage() {
     const dispatch = useDispatch();
     const location = useSelector(selectLocationFilter).trim();    
@@ -14,9 +15,7 @@ export default function CatalogPage() {
    
 
     useEffect(() => {      
-        dispatch(fetchCampers({ location, form })).unwrap().then().catch(
-            
-        )           
+        dispatch(fetchCampers({ location, form }))
      }, [dispatch, location, form])
     
     return (<section style={{display:'flex',justifyContent:'space-between', paddingRight:'64px'}}>
