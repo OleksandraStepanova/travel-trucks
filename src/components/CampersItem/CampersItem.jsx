@@ -1,24 +1,39 @@
 import { Card, CardContent, IconButton} from "@mui/material";
 import css from './CampersItem.module.css'
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import heart from "../../img/heart.svg";
 import redHeart from "../../img/red-heart.svg";
 import star from "../../img/star.svg";
 import map from "../../img/map.svg";
 import FeaturesList from "../FeaturesList/FeaturesList";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchSelected } from "../../redux/selected/slice";
+import { selectSelected } from "../../redux/selected/selector";
 
 
 export default function CampersItem({ camper }) {
+    const dispatch = useDispatch();
     const navigate = useNavigate();
-    const [clicked, setClicked] = useState(false)
-    const handleClicked = () => {
+    const [clicked, setClicked] = useState(false);
+    const selected = useSelector(selectSelected);
+    
+    
+
+    const handleClicked = (id) => {
         setClicked(!clicked);
+         dispatch(fetchSelected(id)); 
+              
     }
     const handleClicke = (id) => {
         navigate(`/catalog/${id}`)
     }
 
+    useEffect(() => {
+       
+    })
+
+    console.log(selected);
     return (
         <Card sx={{ width: '888px', height: '368px', padding: '24px', borderRadius:'20px', boxShadow:'none', border: '1px solid #DADDE1'}}>
             <CardContent sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding:'0' }}>
@@ -35,9 +50,9 @@ export default function CampersItem({ camper }) {
                                         outline:'0px solid #fff'
                                     }
                                 }}
-                                onClick={handleClicked}
+                                onClick={()=>handleClicked(camper.id)}
                                 color={clicked ? 'error' : 'default'}>
-                                {clicked ?
+                                {clicked||selected.includes(camper.id) ?
                                     <img src={redHeart} alt="like" /> :
                                     <img src={heart} alt="like" />}
                             </IconButton>                            

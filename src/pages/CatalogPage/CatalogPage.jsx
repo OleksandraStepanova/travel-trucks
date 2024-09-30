@@ -5,7 +5,7 @@ import CampersList from "../../components/CampersList/CampersList";
 import FiltersForSearch from "../../components/FiltersForSearch/FiltersForSearch";
 import { selectFormFilter, selectLocationFilter } from "../../redux/filters/selector";
 import toast,{ Toaster } from "react-hot-toast";
-import { selectIsLoading } from "../../redux/campers/selector";
+import { selectError, selectIsLoading } from "../../redux/campers/selector";
 import Loader from "../../components/Loader/Loader";
 
 const notifyError = () => toast.error("Nothing was found for this query");
@@ -23,12 +23,15 @@ export default function CatalogPage() {
         dispatch(fetchCampers({ location, form })).unwrap().then().catch((error) => {
             if (error) notifyError();
         })
-     }, [dispatch, location, form])
+    }, [dispatch, location, form])
+    
     const isLoading = useSelector(selectIsLoading);
+    const isError = useSelector(selectError);
+    
     return (<section style={{display:'flex',justifyContent:'space-between', paddingRight:'64px'}}>
         <FiltersForSearch />
         {isLoading&&<Loader/>}
         <CampersList />
-        <Toaster/>
+        {isError&&<Toaster/>}
     </section>)
 }
