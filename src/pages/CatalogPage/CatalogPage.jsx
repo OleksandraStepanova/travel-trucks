@@ -8,7 +8,7 @@ import { selectFormFilter, selectLocationFilter } from "../../redux/filters/sele
 
 export default function CatalogPage() {
     const dispatch = useDispatch();
-    const location = useSelector(selectLocationFilter);    
+    const location = useSelector(selectLocationFilter).trim();    
     const form = useSelector(selectFormFilter);
    
 
