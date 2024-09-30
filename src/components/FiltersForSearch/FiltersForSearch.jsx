@@ -32,12 +32,14 @@ export default function FiltersForSearch() {
                 radio: false,
                 transmission: false,
             }}
-            onSubmit={(values) => {
+            onSubmit={(values,{resetForm}) => {
                 dispatch(clearFilter())
-                dispatch(changeFilter(values))   
-                 dispatch(fetchCampers()).unwrap().then().catch((error) => {
-            if (error) notifyError();
-        })
+                dispatch(changeFilter(values)) 
+               
+                dispatch(fetchCampers()).unwrap().then().catch((error) => {
+                    if (error) notifyError();
+                })
+                resetForm()
             }}
         >
             {({ values, setFieldValue}) => (

@@ -14,7 +14,7 @@ export default function CatalogPage() {
     
     const dispatch = useDispatch(); 
 
-    useEffect(() => {       
+    useEffect(() => {        
         dispatch(fetchCampers()).unwrap().then().catch((error) => {
             if (error) notifyError();
         })

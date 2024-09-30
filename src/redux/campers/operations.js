@@ -5,22 +5,20 @@ axios.defaults.baseURL = 'https://66b1f8e71ca8ad33d4f5f63e.mockapi.io';
 
 export const fetchCampers = createAsyncThunk(
     'campers/fetchAll',
-    async (_,{ getState }) => {
-        const state = getState();
-        
-        const { filters } = state.filters;
-        
-
+    async (_,{ getState, thunkAPI }) => {
+       try {const state = getState();        
+        const { filters } = state.filters; 
         const params = new URLSearchParams();
         for (const [key, value] of Object.entries(filters)) {
             if (value) {
                 params.append(key,value)
             }
-        }
-      
-        
+        }          
         const respons = await axios.get(`/campers?${params.toString()}`)
-        return respons.data;
+            return respons.data;
+       } catch (error) {
+           thunkAPI.rejectWithValue(error.status)
+        }
        
     }
 );

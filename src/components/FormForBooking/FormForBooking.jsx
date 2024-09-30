@@ -5,6 +5,7 @@ import { Box, Paper } from "@mui/material";
 import DatePicker from "react-datepicker";
 import css from './FormForBooking.module.css'
 import "react-datepicker/dist/react-datepicker.css";
+import toast, { Toaster } from "react-hot-toast";
 
 export default function FormForBooking() {
     const id = useId();
@@ -24,8 +25,9 @@ export default function FormForBooking() {
                 bookingDate: startDate,
                 comment:''
             }}
-                onSubmit={(values => {
-                console.log(values);
+                onSubmit={((_,{resetForm}) => {
+                    toast.success('Booking is successful')
+                    resetForm()
                 })}
                 validationSchema={BookingSchema}
             >
@@ -77,6 +79,7 @@ export default function FormForBooking() {
                     </Box>
                 </Paper>                
             </Formik>
+            <Toaster/>
         </>        
     )    
 }
