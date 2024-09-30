@@ -1,6 +1,6 @@
 import { Card, CardContent, IconButton} from "@mui/material";
 import css from './CampersItem.module.css'
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import heart from "../../img/heart.svg";
 import redHeart from "../../img/red-heart.svg";
