@@ -4,6 +4,7 @@ import { fetchCampers } from "../../redux/campers/operations";
 import CampersList from "../../components/CampersList/CampersList";
 import FiltersForSearch from "../../components/FiltersForSearch/FiltersForSearch";
 import { selectFormFilter, selectLocationFilter } from "../../redux/filters/selector";
+import { Toaster } from "react-hot-toast";
 
 
 export default function CatalogPage() {
@@ -13,11 +14,14 @@ export default function CatalogPage() {
    
 
     useEffect(() => {      
-        dispatch(fetchCampers({ location, form }))             
+        dispatch(fetchCampers({ location, form })).unwrap().then().catch(
+            
+        )           
      }, [dispatch, location, form])
     
     return (<section style={{display:'flex',justifyContent:'space-between', paddingRight:'64px'}}>
         <FiltersForSearch/>
-        <CampersList/>
+        <CampersList />
+        <Toaster/>
     </section>)
 }

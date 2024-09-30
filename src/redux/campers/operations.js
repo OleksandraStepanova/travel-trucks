@@ -1,5 +1,10 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import toast from "react-hot-toast";
+
+
+const notifyError = () => toast.error("Nothing was found for this query");
+const notifyErrorAll = () => toast.error("Something went wrong");
 
 axios.defaults.baseURL = 'https://66b1f8e71ca8ad33d4f5f63e.mockapi.io';
 
@@ -24,6 +29,7 @@ export const fetchCampers = createAsyncThunk(
             return respons.data;
         }
         catch (error) {
+            notifyError();
             return thunkAPI.rejectWithValue(error.message)
         }
     }
