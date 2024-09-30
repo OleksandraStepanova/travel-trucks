@@ -32,8 +32,6 @@ export default function CampersItem({ camper }) {
     useEffect(() => {
        
     })
-
-    console.log(selected);
     return (
         <Card sx={{ width: '888px', height: '368px', padding: '24px', borderRadius:'20px', boxShadow:'none', border: '1px solid #DADDE1'}}>
             <CardContent sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding:'0' }}>
