@@ -7,7 +7,12 @@ const slice = createSlice({
     },
     reducers: {
         fetchSelected(state, action) {
-            state.items.push(action.payload);
+            const index = state.items.indexOf(action.payload);
+            if (index === -1) {
+                state.items.push(action.payload);
+            } else {
+                state.items.splice(index,1)
+            }            
         }
     }
 });

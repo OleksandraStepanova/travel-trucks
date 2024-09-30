@@ -22,16 +22,14 @@ export default function CampersItem({ camper }) {
 
     const handleClicked = (id) => {
         setClicked(!clicked);
-         dispatch(fetchSelected(id)); 
-              
+        dispatch(fetchSelected(id));               
     }
     const handleClicke = (id) => {
         navigate(`/catalog/${id}`)
     }
 
-    useEffect(() => {
-       
-    })
+  
+   
     return (
         <Card sx={{ width: '888px', height: '368px', padding: '24px', borderRadius:'20px', boxShadow:'none', border: '1px solid #DADDE1'}}>
             <CardContent sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding:'0' }}>
@@ -50,7 +48,7 @@ export default function CampersItem({ camper }) {
                                 }}
                                 onClick={()=>handleClicked(camper.id)}
                                 color={clicked ? 'error' : 'default'}>
-                                {clicked||selected.includes(camper.id) ?
+                                {selected.includes(camper.id) ?
                                     <img src={redHeart} alt="like" /> :
                                     <img src={heart} alt="like" />}
                             </IconButton>                            
